@@ -1,0 +1,15 @@
+/billingsoftware/src/main/resources/application.properties
+
+*.log
+*.tmp
+*.swp
+
+
+Thumbs.db
+.DS_Store
+
+/client/src/util/constants.js
+
+.vite/
+.vite-temp/
+
