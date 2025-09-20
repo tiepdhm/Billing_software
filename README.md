@@ -77,6 +77,11 @@
 ## Project Structure
 
 ```
++---billingsoftware
+|   +---src
+|   \---uploads
+\---client
+
 src/main/java/in/tiepdhm/billingsoftware
 ├── BillingsoftwareApplication.java
 ├── config
@@ -139,9 +144,6 @@ src/main/java/in/tiepdhm/billingsoftware
 
 src/main/resources
 └── application.properties
-
-uploads
-
 ```
 
 ## Tech Stack
