@@ -1,9 +1,6 @@
-<h1 align="center">Cato</h1>
+<h1 align="Retail Billing Software">Cato</h1>
 <p align="center">
-    <img src="docs/logo-no-background.svg" alt="Logo" height="128" width="128"/>
-</p>
-<p align="center">
-    Online Judge system you can host locally!
+    A Spring Boot Backend side project, using a React Frontend provided by the original author for interface purposes. The system simulates a full-stack retail billing experience, including product management, secure login, order tracking, and online payments.
 </p>
 
 <a name="table-of-contents"></a>
