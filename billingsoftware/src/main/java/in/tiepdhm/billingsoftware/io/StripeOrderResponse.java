@@ -21,7 +21,6 @@ public class StripeOrderResponse {
     private Date created_at;
     private String receipt;
 
-    // Thêm 2 trường này
     private String clientSecret;
     private String paymentIntentId;
 

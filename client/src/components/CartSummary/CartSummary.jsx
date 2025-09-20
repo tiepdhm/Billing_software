@@ -60,7 +60,6 @@ const CartSummary = ({
         window.print();
     };
 
-    // ✅ Stripe verify payment
     const verifyStripePayment = async (orderId, paymentIntentId) => {
         try {
             const paymentResponse = await verifyPayment({
@@ -149,8 +148,6 @@ const CartSummary = ({
                             paymentIntentId: paymentIntentId,
                         },
                     });
-                    // setShowPopup(true); // <-- mở popup ngay sau khi orderDetails đã có PaymentId
-                    // clearAll();
                 }
             }
         } catch (error) {
@@ -250,10 +247,6 @@ const CartSummary = ({
                         stripePaymentId: orderDetails?.paymentDetails?.paymentIntentId,
                     }}
                     onClose={() => setShowPopup(false)}
-                    // onClose={() => {
-                    //     setShowPopup(false);
-                    //     clearAll(); // clear sau khi popup đóng
-                    // }}
                     onPrint={handlePrintReceipt}
                 />
             )}
