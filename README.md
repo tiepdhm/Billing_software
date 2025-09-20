@@ -162,3 +162,10 @@ cd backend
 cd frontend
 npm install
 npm run dev
+
+## Acknowledgments
+
+This project was implemented based on a tutorial video that helped me understand the basics of building a retail billing system.
+
+[Build your own Retail Billing Software tutorial](https://www.youtube.com/watch?v=_UNE39gZrV4)
+
