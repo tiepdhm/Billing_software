@@ -29,7 +29,7 @@
 <a name="authentication"></a>
 
 ### Authentication & Security System
-- Secure login/logout with JWT 
+- Secure login/logout with JWT using Spring Security
 - Role-based access control (Admin/User)
 
 <a name="category"></a>
