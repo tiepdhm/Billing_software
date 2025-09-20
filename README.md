@@ -9,6 +9,7 @@
 
 -   [Table of contents](#table-of-contents)
 -   [Description](#description)
+-   [Features](#features)
 -   [Installation](#installation)
     -   [Requirements](#requirements)
     -   [Clone the project](#clone-the-project)
@@ -26,149 +27,187 @@
 -   [TODO](#todo)
 -   [License](#license)
 
-<a name="description"></a>
+<a name="features"></a>
 
-## Description
+## Features
 
-Cato is a simple web-based Online Judge system for competitive programming problems. Designed with local setup in mind, it can be set up with minimal effort, depending only on Docker for containerization of test runs. At the same time, it can also run in a simple distributed host-worker mode, distributing submissions to multiple judge worker machines for more efficient operation.
+### Authentication & Security System
+- Secure login/logout with JWT and remember-me functionality
+- Role-based access control with hierarchical permissions
+- Password reset and recovery via email verification
+- Custom authentication success and access denied handlers
+- Session management with configurable timeout
+- Automated security key rotation with scheduled tasks
 
-<img src="docs/screenshot-submissions-page.png" alt="Screenshot of Submissions page" />
+### Product & Category Management
+- Complete CRUD operations for products and categories
+- Product search and filtering capabilities
+- Category hierarchy management
+- Product detail management with size and comment support
 
-<a name="installation"></a>
+### Order Management System
+- Order creation and processing workflow
+- Multiple payment options (Cash and PayPal integration)
+- PayPal QR code generation for mobile payments
+- Order status tracking and history
+- Order detail management with line items
+- Order search and filtering capabilities
 
-## Installation
+### User Management
+- User registration and profile management
+- Role and permission assignment
+- User status management (active/inactive)
+- Hierarchical role system (Admin, Manager, User)
+- Gmail credential management for email services
 
-<a name="requirements"></a>
+### Business Reporting & Analytics
+- Sales reports by product with visual charts
+- Sales reports by user performance
+- Order status analytics and tracking
+- Dashboard with key business metrics
+- Custom reporting with date range filtering
+- Export capabilities for business intelligence
 
-### Requirements
+### Email Integration
+- Gmail SMTP integration for notifications
+- Password reset email functionality
+- Order confirmation emails
+- Custom email templates and messaging
 
-Docker or a Docker-compatible container runtime must be installed locally to run Cato process in local/distributed worker mode.
+## Project Structure
 
-To develop the project, [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) is required as it is used to generate the Front End's HTTP API client.
+```
+src/main/java/com/AllInSmall/demo/
+├── controller/                   # MVC Controllers
+│   ├── HomeController.java       # Landing page and navigation
+│   ├── LoginController.java      # Authentication flows
+│   ├── UserController.java       # User management
+│   ├── CategoryController.java   # Category operations
+│   ├── ProductController.java    # Product management
+│   ├── OrderController.java      # Order processing
+│   ├── ReportController.java     # Business reporting
+│   └── DashboardController.java  # Analytics dashboard
+├── service/                      # Business Logic Layer
+│   ├── UserRegistrationService.java
+│   ├── LoginService.java
+│   ├── MyUserDetailsService.java
+│   ├── EmailService.java
+│   ├── GmailService.java
+│   ├── PayPalService.java
+│   └── CategoryService.java
+├── repository/                   # Data Access Layer
+│   ├── UserRepository.java       # Standard JPA repositories
+│   ├── ProductRepository.java
+│   ├── OrderRepository.java
+│   └── custom/                   # Custom repository implementations
+│       ├── CustomOrderRepositoryForReportingImpl.java
+│       └── MyPersistentTokenRepositoryImpl.java
+├── model/                        # Domain Entities
+│   ├── User.java, Role.java, Permission.java
+│   ├── Product.java, Category.java
+│   ├── Order.java, OrderDetail.java
+│   ├── VerificationToken.java
+│   └── PersistentLogin.java
+├── dto/                          # Data Transfer Objects
+│   ├── UserRegistrationRequest.java
+│   ├── OrdersByStatusDto.java
+│   ├── SalesByProductDto.java
+│   └── PaypalOrderResponse.java
+├── configuration/                # Spring Configuration
+│   ├── SecurityConfig.java       # Security filter chain
+│   ├── HierarchyConfig.java      # Role hierarchy
+│   ├── SessionConfig.java        # Session management
+│   ├── RememberMeKeyManager.java # Security key management
+│   ├── KeyRotationScheduler.java # Scheduled tasks
+│   ├── JavaMailConfig.java       # Email configuration
+│   └── InterceptorConfig.java    # Request interceptors
+├── exception/                    # Exception Handling
+│   └── ProductNotFoundException.java
+└── enums/                        # Application Enums
+    ├── OrderStatus.java
+    └── UserStatus.java
 
-### Clone the project
+src/main/webapp/WEB-INF/views/    # JSP View Templates
+├── login.jsp, registerUser.jsp, forgotPasswordForm.jsp
+├── manageUser.jsp, manageCategory.jsp, manageProduct.jsp
+├── ordersByStatus.jsp, salesByProduct.jsp, salesByUser.jsp
+├── paymentOption.jsp, paypalQRCode.jsp, cashPayment.jsp
+└── viewOrderList.jsp, viewOrder.jsp, viewReport.jsp
 
-```bash
-git clone https://github.com/tranHieuDev23/Cato.git
+src/main/resources/
+├── static/css/                   # Stylesheets
+├── static/js/                    # JavaScript files
+└── messages.properties           # Internationalization
 ```
 
-### Build from source
+## Tech Stack
 
-```bash
-# To build for all popular desktop platform
-make build-all
+### Core Technologies
+- **Spring Boot** - Application framework and auto-configuration
+- **Spring MVC** - Web framework with DispatcherServlet
+- **Spring Security** - Authentication and authorization framework
+- **Spring Data JPA** - Data access and ORM layer
+- **JSP (JavaServer Pages)** - Server-side view templating
+- **MySQL** - Relational database for data persistence
 
-# To build for your local platform
-make build
-```
+### Development Tools
+- **Maven** - Dependency management and build automation
+- **Embedded Tomcat** - Web server and servlet container
+- **Spring Boot DevTools** - Development productivity tools
+- **JavaMail API** - Email integration capabilities
 
-### Generate code
+### External Integrations
+- **PayPal REST API** - Payment processing and QR code generation
+- **Gmail SMTP** - Email service for notifications and verification
+- **Docker** - Containerization for deployment
 
-Cato uses code generation for three purposes:
+### Architecture Patterns
+- **Model-View-Controller (MVC)** - Separation of concerns in web layer
+- **Dependency Injection** - Spring container for bean management
+- **Role-Based Access Control (RBAC)** - Hierarchical permission system
+- **Custom Security Handlers** - Tailored authentication and authorization flows
 
-1. Compile-time dependency injection with [github.com/google/wire](https://github.com/google/wire).
-2. Generation of JSON-RPC [server](/internal/handlers/http/rpc/rpcserver/) and [client boilerplate](/internal/handlers/http/rpc/rpcclient/), plus [OpenAPI specification](/api/swagger.json) using [gitlab.com/pjrpc/pjrpc](https://gitlab.com/pjrpc/pjrpc).
-3. Generation of TypeScript's HTTP Client using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator).
+## Authentication & Security Flow
 
-To execute all code generation procedure:
+1. **User Registration**: Email verification with token-based activation
+2. **Login Process**: Credentials validation with optional remember-me functionality
+3. **Security Filter Chain**: Multi-layer authentication and authorization filters
+4. **Role Authorization**: Hierarchical role system with granular permissions
+5. **Session Management**: Configurable session timeout with persistent login tokens
+6. **Password Recovery**: Secure email-based password reset workflow
 
-```bash
-make generate
-```
+## Responsive Design
 
-### Linting
+- **Server-Side Rendering**: JSP templates with responsive CSS frameworks
+- **Mobile-Optimized**: Touch-friendly interfaces for mobile devices
+- **Cross-Browser Support**: Compatible with modern web browsers
+- **Progressive Enhancement**: Graceful degradation for older browsers
 
-```bash
-make lint
-```
+## Business Intelligence Features
 
-<a name="usage"></a>
+- **Real-Time Analytics**: Live dashboard with key performance indicators
+- **Sales Reporting**: Comprehensive sales analysis by product and user
+- **Order Tracking**: Complete order lifecycle monitoring
+- **Data Visualization**: Charts and graphs for business insights
+- **Export Functionality**: Data export for external analysis tools
 
-## Usage
-
-### Running in local mode
-
-Just double click on the executable!
-
-The default options is to start the Online Judge server as a standalone process on the local machine, serving both host and worker logic. This is convenient for simple local use cases, with the drawback being that you only have the computational resource of a single machine to evaluate incoming submissions.
-
-### Running in distributed mode
-
-To distribute submissions to be evaluated on multiple machines, you can run the system in distributed mode. In this mode, the single HTTP host server is considered to be the source of trust, while one or more worker processes synchronize information with the host over time and periodically fetching the oldest available submission to judge.
-
-Starting the HTTP host server by executing the following command:
-
-```bash
-cato --distributed
-```
-
-Starting the worker process by executing the following command:
-
-```bash
-cato --distributed \
-    --worker \
-    --host-address <address of the host with the prefix http:// or https://> \
-    --worker-account worker \
-    --worker-password changeme
-```
-
-Make sure that all worker machine have its own Docker (or a Docker-compatible container runtime) running locally and can access the host's HTTP server.
-
-### Editing problem statements
-
-[QuillJS](https://quilljs.com/) is the editor for text problem description, while [Katex](https://katex.org/) is used for math typesetting, allowing problem setters to write rich problem statements with proper math annotations.
-
-<img src="docs/screenshot-problem-page.png" alt="Screenshot of Problem page" />
-
-### Custom client
-
-Thinking that the web client sucks? You can totally write (or better yet, generate) your own HTTP client for Cato using [the generated OpenAPI 3.0 specification](/api/swagger.json).
-
-In fact, this project was created because I discovered that [the code generation pipeline using pjrpc and OpenAPI Generator](#generate-code) is so powerful that it allows me to finish this project within just 5 days!
-
-<a name="config"></a>
-
-## Config
-
-### CLI Arguments
-
-| Argument                    | Description                                                                                                                                                                                                  | Default Value           |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `--distributed`             | If provided, will start the program in distributed mode.                                                                                                                                                     | `false`                 |
-| `--worker`                  | If provided and `--distributed` is set, will start the program as a worker process in distributed mode.                                                                                                      | `false`                 |
-| `--no-browser`              | If provided, will not open a browser window when the server starts.                                                                                                                                          | `false`                 |
-| `--host-address`            | The address of the host server when running in worker mode.                                                                                                                                                  | `http://127.0.0.1:8080` |
-| `--worker-account-name`     | The worker account name when running in worker mode.                                                                                                                                                         | `worker`                |
-| `--worker-account-password` | The worker account password when running in worker mode.                                                                                                                                                     | `changeme`              |
-| `--config-file-path`        | If provided, will use the provided config file.                                                                                                                                                              |                         |
-| `--pull-image-at-startup`   | Whether to pull Docker images necessary for compiling and executing test case at startup. If set to true and Docker fails to pull any of the provided image, the program will exit with non-zero error code. | `true`                  |
-
-### Config files
-
-Cato use a YAML config file to configure its inner working in more details. By default, if no custom config file is provided, values in the config file [configs/local.yaml](configs/local.yaml) are used.
-
-<a name="Todo"></a>
-
-## TODO
-
--   [x] Problem example list - Small set of small test cases that users can view and copy
--   [ ] Custom output evaluation method:
-    -   [ ] Evaluation using custom scripts running inside containers
--   [ ] Contests
-    -   [ ] ACM Scoring Mode - Problems are either completely `Accepted` or not
-    -   [ ] IOI Scoring Mode - Problems are scored based for passed test cases
-    -   [ ] Ranking dashboard
--   [x] Feature flags
-    -   [x] Enable/disable account registration
-    -   [x] Enable/disable problem/test case creation
-    -   [x] Enable/disable submissions
--   [ ] Account disabling
--   [ ] Support for more database engines
--   [ ] Dark mode
--   [ ] Better documentation
-
-<a name="licence"></a>
+### Code Standards
+- Follow Spring Boot best practices and conventions
+- Use proper Spring annotations (@Service, @Repository, @Controller)
+- Implement proper exception handling with custom exceptions
+- Write meaningful method and class names following Java naming conventions
+- Use JSP best practices for view layer development
+- Ensure proper input validation and sanitization
+- Follow security best practices for authentication and authorization
+- Add comprehensive JavaDoc comments for public methods
+- Implement proper logging using SLF4J
+- Use Spring Security annotations for method-level security
+- Follow JPA best practices for entity relationships and queries
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Built for comprehensive retail management and e-commerce solutions**
