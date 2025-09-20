@@ -1,7 +1,6 @@
-<h1 align="Retail Billing Software">Cato</h1>
-<p align="center">
+<h1 align="Center">Retail Billing Software</h1>
+
     A Spring Boot Backend side project, using a React Frontend provided by the original author for interface purposes. The system simulates a full-stack retail billing experience, including product management, secure login, order tracking, and online payments.
-</p>
 
 <a name="table-of-contents"></a>
 
