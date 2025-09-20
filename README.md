@@ -77,12 +77,15 @@
 ## Project Structure
 
 ```
-+---billingsoftware
-|   +---src
-|   \---uploads
-\---client
+billingsoftware
+├── src
+├── uploads
 
-src/main/java/in/tiepdhm/billingsoftware
+client
+
+billingsoftware/src/main/resources/application.properties
+
+billingsoftware/src/main/java/in/tiepdhm/billingsoftware
 ├── BillingsoftwareApplication.java
 ├── config
 │   ├── SecurityConfig.java
@@ -141,9 +144,6 @@ src/main/java/in/tiepdhm/billingsoftware
 │       └── UserServiceImpl.java
 └── util
     └── JwtUtil.java
-
-src/main/resources
-└── application.properties
 ```
 
 ## Tech Stack
