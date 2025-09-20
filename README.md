@@ -168,7 +168,7 @@ billingsoftware/src/main/java/in/tiepdhm/billingsoftware
    cp billingsoftware/src/main/resources/application.properties.example billingsoftware/src/main/resources/application.properties
    
    cp client/src/utils/constants.js.example client/src/utils/constants.js
-3. Fill in the required values in application.properties and constants.js.
+3. Fill in the required values in `application.properties` and `constants.js`.
 
 ### Backend (Spring Boot)
 
