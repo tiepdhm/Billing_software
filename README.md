@@ -8,51 +8,60 @@
 ## Table of contents
 
 -   [Table of contents](#table-of-contents)
--   [Description](#description)
 -   [Features](#features)
--   [Installation](#installation)
-    -   [Requirements](#requirements)
-    -   [Clone the project](#clone-the-project)
-    -   [Build from source](#build-from-source)
-    -   [Generate code](#generate-code)
-    -   [Linting](#linting)
--   [Usage](#usage)
-    -   [Running in local mode](#running-in-local-mode)
-    -   [Running in distributed mode](#running-in-distributed-mode)
-    -   [Editing problem statements](#editing-problem-statements)
-    -   [Custom client](#custom-client)
--   [Config](#config)
-    -   [CLI Arguments](#cli-arguments)
-    -   [Config files](#config-files)
--   [TODO](#todo)
--   [License](#license)
+    -   [Authentication & Security System](#authentication)
+    -   [Category Management](#category)
+    -   [Item Management](#item)
+    -   [Order Management System](#order)
+    -   [Payment Integration](#payment)
+    -   [Image Handling](#image)
+-   [Project Structure](#project-structure)
+-   [Tech Stack](#tech-stack)
+    -   [Backend Technologies](#backend)
+    -   [Architecture Patterns](#pattern)
+-   [Getting Started](#started)
+-   [Acknowledgments](#acknowledgement)
 
 <a name="features"></a>
 
 ## Features
 
+<a name="authentication"></a>
+
 ### Authentication & Security System
 - Secure login/logout with JWT 
 - Role-based access control (Admin/User)
 
+<a name="category"></a>
+
 ### Category Management
 - Add/View/Delete categories
+
+<a name="item"></a>
 
 ### Item Management
 - Add/View/Delete and manage products under each category
 - Add product images
+
+<a name="order"></a>
 
 ### Order Management System
 - Order creation and processing workflow
 - Checkout via Stripe
 - Save customer & order data
 
+<a name="payment"></a>
+
 ### Payment Integration
 - Stripe integrated for payment handling
 - Orders saved post successful transaction (tested in Stripe sandbox)
 
+<a name="image"></a>
+
 ### Image Handling
 - Product images uploaded and stored **locally**
+  
+<a name="project-structure"></a>
 
 ## Project Structure
 
@@ -126,7 +135,11 @@ billingsoftware/src/main/java/in/tiepdhm/billingsoftware
     └── JwtUtil.java                                      # JWT helper utility
 ```
 
+<a name="tech-stack"></a>
+
 ## Tech Stack
+
+<a name="backend"></a>
 
 ### Backend Technologies
 - Java 17+
@@ -137,11 +150,15 @@ billingsoftware/src/main/java/in/tiepdhm/billingsoftware
 - Stripe Payment Gateway
 - Maven
 
+<a name="pattern"></a>
+
 ### Architecture Patterns
 - **Model-View-Controller (MVC)** - Separation of concerns in web layer
 - **Dependency Injection** - Spring container for bean management
 - **Role-Based Access Control (RBAC)** - Hierarchical permission system
 - **Custom Security Handlers** - Tailored authentication and authorization flows
+
+<a name="started"></a>
 
 ## Getting Started
 
@@ -163,6 +180,7 @@ cd frontend
 npm install
 npm run dev
 ```
+<a name="acknowledgement"></a>
 
 ## Acknowledgments
 
