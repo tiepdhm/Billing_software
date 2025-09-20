@@ -47,6 +47,13 @@
 - Checkout via Stripe
 - Save customer & order data
 
+### Payment Integration
+- Stripe integrated for payment handling
+- Orders saved post successful transaction (tested in Stripe sandbox)
+
+### Image Handling
+- Product images uploaded and stored **locally**
+
 ## Project Structure
 
 ```
@@ -122,15 +129,28 @@ billingsoftware/src/main/java/in/tiepdhm/billingsoftware
 ## Tech Stack
 
 ### Backend Technologies
-- **Spring Boot** - Application framework and auto-configuration
-- **Spring MVC** - Web framework with DispatcherServlet
-- **Spring Security** - Authentication and authorization framework
-- **Spring Data JPA** - Data access and ORM layer
-- **JSP (JavaServer Pages)** - Server-side view templating
-- **MySQL** - Relational database for data persistence
+- Java 17+
+- Spring Boot
+- Spring Security
+- Spring Data JPA (Hibernate)
+- MySQL
+- Stripe Payment Gateway
+- Maven
 
 ### Architecture Patterns
 - **Model-View-Controller (MVC)** - Separation of concerns in web layer
 - **Dependency Injection** - Spring container for bean management
 - **Role-Based Access Control (RBAC)** - Hierarchical permission system
 - **Custom Security Handlers** - Tailored authentication and authorization flows
+
+## Getting Started
+
+### Backend (Spring Boot)
+
+```bash
+cd backend
+./mvnw spring-boot:run
+
+cd frontend
+npm install
+npm run dev
