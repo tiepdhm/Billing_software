@@ -77,36 +77,36 @@
 ## Project Structure
 
 ```
-billingsoftware
+billingsoftware                                           # Backend files
 ├── src
-├── uploads
+└── uploads                                               # Product images uploaded and stored locally
 
-client
+client                                                    # Frontend files
 
-billingsoftware/src/main/resources/application.properties
+billingsoftware/src/main/resources/application.properties # Configuration properties file
 
 billingsoftware/src/main/java/in/tiepdhm/billingsoftware
 ├── BillingsoftwareApplication.java
-├── config
-│   ├── SecurityConfig.java
-│   └── StaticResourceConfig.java
-├── controller
-│   ├── AuthController.java
-│   ├── CategoryController.java
-│   ├── DashboardController.java
-│   ├── ItemController.java
-│   ├── OrderController.java
-│   ├── PaymentController.java
-│   └── UserController.java
-├── entity
+├── config                                                # Spring Configuration
+│   ├── SecurityConfig.java                               # Security filter chain
+│   └── StaticResourceConfig.java                         # Local storage config
+├── controller                                            # MVC Controllers
+│   ├── AuthController.java                               # Authentication flows
+│   ├── CategoryController.java                           # Category operations
+│   ├── DashboardController.java                          # Order report dashboard
+│   ├── ItemController.java                               # Item operations
+│   ├── OrderController.java                              # Order processing
+│   ├── PaymentController.java                            # Payment processing
+│   └── UserController.java                               # User management
+├── entity                                                # Domain Entities
 │   ├── CategoryEntity.java
 │   ├── ItemEntity.java
 │   ├── OrderEntity.java
 │   ├── OrderItemEntity.java
 │   └── UserEntity.java
 ├── filter
-│   └── JwtRequestFilter.java
-├── io
+│   └── JwtRequestFilter.java                             # JWT authentication filter
+├── io                                                    # Data Transfer Objects
 │   ├── AuthRequest.java
 │   ├── AuthResponse.java
 │   ├── CategoryRequest.java
@@ -123,19 +123,19 @@ billingsoftware/src/main/java/in/tiepdhm/billingsoftware
 │   ├── StripeOrderResponse.java
 │   ├── UserRequest.java
 │   └── UserResponse.java
-├── repository
-│   ├── CategoryRepository.java
+├── repository                                            # Data Access Layer
+│   ├── CategoryRepository.java                           # Standard JPA repositories
 │   ├── ItemRepository.java
 │   ├── OrderEntityRepository.java
 │   ├── OrderItemEntityRepository.java
 │   └── UserRepository.java
-├── service
-│   ├── CategoryService.java
+├── service                                               # Business Logic Layer
+│   ├── CategoryService.java                              # Service interfaces
 │   ├── ItemService.java
 │   ├── OrderService.java
 │   ├── StripeService.java
 │   ├── UserService.java
-│   └── impl
+│   └── impl                                              # Service interface implementations
 │       ├── AppUserDetailsService.java
 │       ├── CategoryServiceImpl.java
 │       ├── ItemServiceImpl.java
@@ -143,7 +143,7 @@ billingsoftware/src/main/java/in/tiepdhm/billingsoftware
 │       ├── StripeServiceImpl.java
 │       └── UserServiceImpl.java
 └── util
-    └── JwtUtil.java
+    └── JwtUtil.java                                      # JWT helper utility
 ```
 
 ## Tech Stack
