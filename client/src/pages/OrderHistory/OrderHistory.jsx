@@ -82,7 +82,7 @@ const OrderHistory = () => {
                                 </td>
 
                                 <td>{formatItems(order.items)}</td>
-                                <td>&#8377;{order.grandTotal}</td>
+                                <td>${order.grandTotal}</td>
                                 <td>{order.paymentMethod}</td>
                                 <td>
                              <span

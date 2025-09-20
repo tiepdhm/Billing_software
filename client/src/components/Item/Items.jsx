@@ -25,7 +25,7 @@ const Items = ({itemName,itemImage,itemPrice,itemId}) => {
             {/* card second column */}
             <div className="d-flex-grow-1 ms-2">
                 <h6 className='mb-1 text-light'>{itemName}</h6>
-                <p className='mb-0 fw-bold text-light'>&#8377;{itemPrice}</p>
+                <p className='mb-0 fw-bold text-light'>${itemPrice}</p>
             </div>
 
             {/* card third column */}

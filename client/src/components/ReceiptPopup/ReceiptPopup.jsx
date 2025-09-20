@@ -26,7 +26,7 @@ const ReceiptPopup = ({orderDetails,onClose,onPrint}) => {
                         orderDetails.items.map((item,index)=>(
                             <div key={index} className="d-flex justify-content-between mb-2">
                                 <span>{item.name} x {item.quantity}</span>
-                                <span>&#8377;{(item.price * item.quantity).toFixed(2)}</span>
+                                <span>${(item.price * item.quantity).toFixed(2)}</span>
                             </div>
                         ))
                     }
@@ -38,7 +38,7 @@ const ReceiptPopup = ({orderDetails,onClose,onPrint}) => {
                     <strong>Subtotal:</strong>
 
                 </span>
-                    <span>&#8377;{orderDetails.subtotal.toFixed(2)}</span>
+                    <span>${orderDetails.subtotal.toFixed(2)}</span>
 
 
                 </div>
@@ -48,14 +48,14 @@ const ReceiptPopup = ({orderDetails,onClose,onPrint}) => {
                     <strong>Tax (1%):</strong>
 
                 </span>
-                    <span>&#8377;{orderDetails.tax.toFixed(2)}</span>
+                    <span>${orderDetails.tax.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-2">
             <span>
                     <strong>Grand Total:</strong>
 
                 </span>
-                    <span>&#8377;{orderDetails.grandTotal.toFixed(2)}</span>
+                    <span>${orderDetails.grandTotal.toFixed(2)}</span>
                 </div>
 
                 <p className='d-flex justify-content-between mb-2'>

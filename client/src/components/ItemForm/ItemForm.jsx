@@ -120,7 +120,7 @@ const ItemForm = () => {
                                            className='form-control'
                                            onChange={onChangeHandler}
                                            value={data.price}
-                                           placeholder='&#8377;200' />
+                                           placeholder='$8' />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description"  className='form-label'>Description</label>

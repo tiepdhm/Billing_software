@@ -115,7 +115,7 @@ const CartSummary = ({
                 // 1️⃣ Create PaymentIntent
                 const stripeOrder = await createStripeOrder({
                     amount: grandTotal,
-                    currency: "USD"   // hoặc "INR" tùy backend
+                    currency: "USD"
                 });
 
                 console.log("StripeOrder response:", stripeOrder.data);
@@ -166,17 +166,17 @@ const CartSummary = ({
             <div className="card-summary-details">
                 <div className="d-flex justify-content-between mb-2">
                     <span className="text-light">Item:</span>
-                    <span className="text-light">&#8377;{totalAmount.toFixed(2)}</span>
+                    <span className="text-light">$ {totalAmount.toFixed(2)}</span>
                 </div>
 
                 <div className="d-flex justify-content-between mb-2">
                     <span className="text-light">Tax (1%):</span>
-                    <span className="text-light">&#8377;{tax.toFixed(2)}</span>
+                    <span className="text-light">$ {tax.toFixed(2)}</span>
                 </div>
 
                 <div className="d-flex justify-content-between mb-4">
                     <span className="text-light">Total:</span>
-                    <span className="text-light">&#8377;{grandTotal.toFixed(2)}</span>
+                    <span className="text-light">$ {grandTotal.toFixed(2)}</span>
                 </div>
             </div>
 
@@ -216,7 +216,7 @@ const CartSummary = ({
                         <h3 style={{ marginBottom: "10px", color: "#333", fontWeight: "600" }}>
                             Enter Card Details
                         </h3>
-                        <p style={{ color: "#555", fontWeight: "500" }}>Total: ₹{grandTotal.toFixed(2)}</p>
+                        <p style={{ color: "#555", fontWeight: "500" }}>Total: ${grandTotal.toFixed(2)}</p>
 
                         <div style={{ margin: "15px 0", padding: "12px", border: "1px solid #ccc", borderRadius: "6px", background: "#f8f8f8" }}>
                             <CardElement options={{ hidePostalCode: true }} />

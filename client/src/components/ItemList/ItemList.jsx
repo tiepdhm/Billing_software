@@ -66,7 +66,7 @@ const ItemsList = () => {
                                             </p>
 
                                             <span className="mb-0 text-block badge rounded-pill text-bg-warning">
-                    &#8377;{item.price}
+                    ${item.price}
                  </span>
                                         </div>
                                         <div>
