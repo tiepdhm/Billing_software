@@ -39,7 +39,7 @@
 - Add/View/Delete categories
 
 ### Item Management
-- Add/View/Delete and Manage products under each category
+- Add/View/Delete and manage products under each category
 - Add product images
 
 ### Order Management System
