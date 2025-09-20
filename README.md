@@ -32,47 +32,20 @@
 ## Features
 
 ### Authentication & Security System
-- Secure login/logout with JWT and remember-me functionality
-- Role-based access control with hierarchical permissions
-- Password reset and recovery via email verification
-- Custom authentication success and access denied handlers
-- Session management with configurable timeout
-- Automated security key rotation with scheduled tasks
+- Secure login/logout with JWT 
+- Role-based access control (Admin/User)
 
-### Product & Category Management
-- Complete CRUD operations for products and categories
-- Product search and filtering capabilities
-- Category hierarchy management
-- Product detail management with size and comment support
+### Category Management
+- Add/View/Delete categories
+
+### Item Management
+- Add/View/Delete and Manage products under each category
+- Add product images
 
 ### Order Management System
 - Order creation and processing workflow
-- Multiple payment options (Cash and PayPal integration)
-- PayPal QR code generation for mobile payments
-- Order status tracking and history
-- Order detail management with line items
-- Order search and filtering capabilities
-
-### User Management
-- User registration and profile management
-- Role and permission assignment
-- User status management (active/inactive)
-- Hierarchical role system (Admin, Manager, User)
-- Gmail credential management for email services
-
-### Business Reporting & Analytics
-- Sales reports by product with visual charts
-- Sales reports by user performance
-- Order status analytics and tracking
-- Dashboard with key business metrics
-- Custom reporting with date range filtering
-- Export capabilities for business intelligence
-
-### Email Integration
-- Gmail SMTP integration for notifications
-- Password reset email functionality
-- Order confirmation emails
-- Custom email templates and messaging
+- Checkout via Stripe
+- Save customer & order data
 
 ## Project Structure
 
