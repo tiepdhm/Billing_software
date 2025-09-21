@@ -5,7 +5,7 @@
 
 <p>
     <a href="https://youtu.be/3AOAeSWZQyI">
-        <img src="https://img.youtube.com/vi/3AOAeSWZQyI/maxresdefault.jpg" alt="Watch the video demo of my project">
+        <img src="https://img.youtube.com/vi/3AOAeSWZQyI/maxresdefault.jpg" alt="Video demo thumbnail">
     </a>
 </p>
 <p align="center">
