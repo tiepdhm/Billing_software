@@ -1,9 +1,12 @@
 <h1 align="Center">Retail Billing Software</h1>
 <p>
     A Spring Boot Backend side project, using a React Frontend provided by the original author for interface purposes. The system simulates a full-stack retail billing experience, including product management, secure login, order tracking, and online payments.
+</p>
 
-    [![Watch the video demo of my project](https://img.youtube.com/vi/3AOAeSWZQyI/maxresdefault.jpg)](https://youtu.be/3AOAeSWZQyI)
-
+<p>
+    <a href="https://youtu.be/3AOAeSWZQyI">
+        <img src="https://img.youtube.com/vi/3AOAeSWZQyI/maxresdefault.jpg" alt="Watch the video demo of my project">
+    </a>
 </p>
 
 <a name="table-of-contents"></a>
