@@ -8,6 +8,9 @@
         <img src="https://img.youtube.com/vi/3AOAeSWZQyI/maxresdefault.jpg" alt="Watch the video demo of my project">
     </a>
 </p>
+<p align="center">
+    <a href="https://youtu.be/3AOAeSWZQyI">Watch the video demo of my project</a>
+</p>
 
 <a name="table-of-contents"></a>
 
